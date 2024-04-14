@@ -87,6 +87,7 @@ const Header = () => {
         </View>
     );
 };
+  
 
 
 
@@ -147,37 +148,7 @@ const styles = StyleSheet.create({
         padding: 10,
     },
 
-    storyList: {
-        alignItems: 'center',
-        paddingVertical: 10,
-        marginLeft: 5
-    },
-    storyItem: {
-        marginRight: 15,
-        alignItems: 'center',
-    },
-    storyImage: {
-        width: 70,
-        height: 70,
-        borderRadius: 35,
-        borderWidth: 3,
-        borderColor: '#c13584',
-    },
-
-    storyUsername: {
-        marginTop: 5,
-        fontSize: 12,
-        color: '#333',
-    },
-    addStory: {
-        width: 70,
-        height: 70,
-        borderRadius: 35,
-        backgroundColor: '#c13584',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-
+   
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -194,7 +165,5 @@ const styles = StyleSheet.create({
     icons: {
         flexDirection: 'row',
     },
-    icon: {
-        marginLeft: 15,
-    },
+   
 });

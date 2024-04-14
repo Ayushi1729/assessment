@@ -6,12 +6,12 @@ import { CopilotProvider } from "react-native-copilot";
 
 const App = () => {
   return (
-    <CopilotProvider overlay="view" verticalOffset={50} >
     <SafeAreaView style={{ flex: 1 }}>
+      <CopilotProvider overlay="view" verticalOffset={25} >
       <Home />
       <BottomNavigation />
+    </CopilotProvider>
     </SafeAreaView>
-  </CopilotProvider>
   );
 };
 
