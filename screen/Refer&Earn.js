@@ -42,12 +42,9 @@ const ReferToEarnScreen = () => {
 
   const fetchContacts = async () => {
 
-
-
     try {
       Contacts.getAll()
         .then((contacts) => {
-          console.log(contacts);
           setContacts(contacts);
           setFilteredContacts(contacts); 
         })
@@ -58,15 +55,13 @@ const ReferToEarnScreen = () => {
       console.error('Error fetching contacts:', err);
     }
 
-
-
   };
 
  
 
   const renderContactItem = (item) => {
     const initials = getInitials(item.displayName);
-    console.log(initials)
+    // console.log("allItem",item)
     return (
       <View key={item.recordID} style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10 }}>
   {item.hasThumbnail && (
@@ -81,7 +76,7 @@ const ReferToEarnScreen = () => {
   <View style={{ flex: 1, marginLeft: 10 }}>
     <Text style={styles.contactName}>{item.displayName}</Text>
     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-      <Text>{item.phoneNumbers[0].number + " "}</Text>
+      <Text>{item.phoneNumbers[0]?.number? item.phoneNumbers[0]?.number + " " : item.phoneNumbers[1]?.number + " "}</Text>
       <Text style={{ color: 'blue' }}>Invite</Text>
     </View>
   </View>
@@ -93,16 +88,18 @@ const ReferToEarnScreen = () => {
   };
 
   const getInitials = (name) => {
-    const parts = name.split(' ');
-    let initials = '';
-    for (const part of parts) {
-      initials += part.charAt(0).toUpperCase();
+    if(name!=null){
+
+      const parts = name.split(' ');
+      let initials = '';
+      for (const part of parts) {
+        initials += part.charAt(0).toUpperCase();
+      }
+      return initials;
     }
-    return initials;
   };
 
   const handleSubmit = () => {
-    console.log(`Sending referral invite to: ${name}, ${mobile}, ${email}`);
     setName('');
     setMobile('');
     setEmail('');
@@ -140,7 +137,6 @@ const ReferToEarnScreen = () => {
   };
 
   const filterContacts = (text) => {
-    console.log(text)
     if(text==""){
       setContacts(filteredContacts)
     }else{
@@ -202,6 +198,7 @@ const ReferToEarnScreen = () => {
       >
         <View style={{ backgroundColor: 'white', flex: 1 }}>
 
+{console.log(filteredContacts.length,"lengthhhh")}
         <Text style={{ textAlign: 'center', marginTop:25 }}>Swipe up to see {filteredContacts.length} friends you can invite</Text>
 
           <View style={styles.searchBar}>
