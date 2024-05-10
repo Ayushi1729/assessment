@@ -1,18 +1,42 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+import 'react-native-gesture-handler'
 import React from 'react';
-import { Dimensions, SafeAreaView } from 'react-native';
-import Home from './screen/Home';
-import BottomNavigation from './screen/BottomNavigation';
-import { CopilotProvider } from "react-native-copilot";
+import type {PropsWithChildren} from 'react';
+import {
+  Platform,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  useColorScheme,
+  View,
+} from 'react-native';
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-const App = () => {
+import ReferToEarnScreen from './screen/Refer&Earn';
+
+function App() {
+  const isDarkMode = useColorScheme() === 'dark';
+
+  
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <CopilotProvider overlay="view" verticalOffset={25} >
-      <Home />
-      <BottomNavigation />
-    </CopilotProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#e1f6fb' }}>
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={"#293464"}
+      />
+     <ReferToEarnScreen/>
     </SafeAreaView>
+    </GestureHandlerRootView>
   );
-};
+}
 
 export default App;

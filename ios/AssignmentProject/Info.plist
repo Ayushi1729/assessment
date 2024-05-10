@@ -48,5 +48,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>Privacy - Contacts Usage Description</key>
+	<string>insert message about accessing contacts...</string>
 </dict>
 </plist>
